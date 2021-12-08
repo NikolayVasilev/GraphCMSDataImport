@@ -59,7 +59,6 @@ app.get('/authors/:id', async function (req, res)
 
 app.get('/addRandomAuthor', async function (req, res) 
 {
-
   var authorName = "Name" + randomInt(9999);
   var authorPortfolioLink = "https://google.com";
   console.log('Creating author: { name: ' + authorName + ', portfolioLink: ' + authorPortfolioLink + '}');
@@ -79,13 +78,8 @@ app.get('/addRandomAuthor', async function (req, res)
     portfolioLink: authorPortfolioLink
   };
 
-  // doesn't work
   const author = await client.request(query, user );
   res.render('authorAdded', author );
-
-
-  // works
-  // res.render('authorAdded', await client.request(query, user));
 });
 
 app.listen(PORT, () => console.log(`🚀 Running on port ${PORT}`));
