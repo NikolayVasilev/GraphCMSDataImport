@@ -1,0 +1,10 @@
+<a href="/addRandomAuthor">Add random author</a>
+<br/>
+<p>-----------------------------------------</p>
+<% authors.forEach(function(author) { %>
+    <a href="/authors/<%= author.id %>">
+      <%= author.name %>
+    </a>
+<br/>
+<% }); %>
+
