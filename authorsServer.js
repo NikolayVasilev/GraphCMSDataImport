@@ -3,6 +3,7 @@ const { AwesomeGraphQLClient } = require('awesome-graphql-client');
 const fetch = require('node-fetch');
 const { randomInt } = require('crypto'); 
 require('dotenv').config();
+const importer = require("./readCSV");
 
 const app = express();
 
@@ -82,4 +83,12 @@ app.get('/addRandomAuthor', async function (req, res)
   res.render('authorAdded', author );
 });
 
-app.listen(PORT, () => console.log(`🚀 Running on port ${PORT}`));
+app.get('/addCSVAuthors', async function (req, res) 
+{
+  importer.importCSV();
+
+  res.render('addCSVAuthors');
+
+});
+
+app.listen(PORT, () => console.log(`🚀 Running on port ${PORT}`)); 
