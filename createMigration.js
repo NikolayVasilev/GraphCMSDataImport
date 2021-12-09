@@ -4,11 +4,10 @@ require('dotenv').config();
 console.log(process.env.GRAPHCMS_INSTANCE);
 console.log(process.env.GRAPHCMS_TOKEN);
 
-const migration = newMigration(
-    { 
-        endpoint: process.env.GRAPHCMS_INSTANCE, 
-        authToken: process.env.GRAPHCMS_TOKEN
-    });
+const migration = newMigration({ 
+    endpoint: process.env.GRAPHCMS_INSTANCE, 
+    authToken: process.env.GRAPHCMS_TOKEN
+});
 
 const author = migration.createModel({
   apiId: "Author",
