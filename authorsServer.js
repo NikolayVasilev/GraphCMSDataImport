@@ -1,7 +1,7 @@
 const express = require('express');
 const { AwesomeGraphQLClient } = require('awesome-graphql-client');
 const fetch = require('node-fetch');
-const { randomInt } = require('crypto');
+const { randomInt } = require('crypto'); 
 require('dotenv').config();
 
 const app = express();
@@ -10,13 +10,13 @@ const PORT = process.env.PORT || 3000;
 const GRAPHCMS_INSTANCE = process.env.GRAPHCMS_INSTANCE;
 
 const client = new AwesomeGraphQLClient({
-    endpoint:
-      GRAPHCMS_INSTANCE,
-    fetch,
-    headers: {
-      Authorization: `Bearer ` + process.env.GRAPHCMS_TOKEN
-    }
-  });
+  endpoint:
+    GRAPHCMS_INSTANCE,
+  fetch,
+  headers: {
+    Authorization: `Bearer ` + process.env.GRAPHCMS_TOKEN
+  }
+});
 
 app.set('view engine', 'ejs');
 
