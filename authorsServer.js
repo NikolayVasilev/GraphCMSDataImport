@@ -91,4 +91,21 @@ app.get('/addCSVAuthors', async function (req, res)
 
 });
 
+app.get('/publishAuthor/:id', async function (req, res) 
+{
+  const query = `
+    mutation PublishAuthorMutation($id: ID!) {
+      publishAuthor(where: {id: $id}) {
+        id
+      }
+    }
+  `;
+
+  const { id } = req.params;
+
+  const { author } = await client.request(query, { id });
+
+  res.render('authorAddedStatic');
+});
+
 app.listen(PORT, () => console.log(`🚀 Running on port ${PORT}`)); 
